@@ -1,6 +1,6 @@
 {
   "name": "mongoose-extra-validators",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "Mongoose extra validators",
   "main": "build/index.js",
   "types": "build/index.d.ts",
