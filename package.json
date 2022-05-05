@@ -1,0 +1,29 @@
+{
+  "name": "mongoose-extra-validators",
+  "version": "1.0.0-rc.11",
+  "description": "Mongoose extra validators",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "repository": "https://github.com/lsafer/mongoose-extra-validators",
+  "author": "LSafer",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "npx rimraf build && tsc",
+    "lint": "tsc --noEmit",
+    "test": "mocha --require ts-node/register src/test/**/*.spec.ts",
+    "start": "build/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@types/mocha": "^9.1.1",
+    "@types/chai": "^4.3.1",
+    "mocha": "^10.0.0",
+    "chai": "^4.3.6",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.2.10",
+    "typescript": "^4.6.3",
+    "ts-node": "^10.7.0"
+  }
+}
