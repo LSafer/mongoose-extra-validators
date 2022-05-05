@@ -1,6 +1,6 @@
 import {Schema} from "mongoose";
-import {ExistsValidatorPlugin, ExistsValidatorPluginOptions} from "./validator/ExistsValidator";
-import {SingletonValidatorPlugin, SingletonValidatorPluginOptions} from "./validator/SingletonValidator";
+import {ExistsValidatorPlugin, ExistsValidatorPluginOptions, SchemaExistsOption} from "./validator/ExistsValidator";
+import {SchemaSingletonOption, SingletonValidatorPlugin, SingletonValidatorPluginOptions} from "./validator/SingletonValidator";
 
 /**
  * The options passed to `ExtraValidatorsPlugin`
@@ -31,5 +31,20 @@ export function ExtraValidatorsPlugin(schema: Schema, options: ExtraValidatorsPl
                 ...options, deduplicate: true
             })
         }
+    }
+}
+
+declare module 'mongoose' {
+    export class SchemaTypeOptions<T> {
+        /**
+         * When true, a validator will be added to ensure a document exists on
+         * `ref` with its id being the value of this field.
+         */
+        exists?: SchemaExistsOption
+        /**
+         * When true, a validator will be added to ensure a document does not
+         * exist with the same value in this field.
+         */
+        singleton?: SchemaSingletonOption
     }
 }
